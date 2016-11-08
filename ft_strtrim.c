@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:17:01 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 16:54:54 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 21:07:43 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s)
 	unsigned int	end;
 	unsigned int	len;
 
+	if (s == NULL)
+		return (NULL);
 	start = 0;
 	len = ft_strlen(s);
 	if (len == 0)
