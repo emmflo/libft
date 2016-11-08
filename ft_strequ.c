@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:09:30 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:09:32 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 18:57:53 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (s1 == NULL || s1 == NULL)
+		return (0);
 	return (ft_strcmp(s1, s2) == 0);
 }

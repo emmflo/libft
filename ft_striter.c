@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:09:33 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:09:34 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 18:56:48 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (s == NULL || f == NULL)
+		return ;
 	while (*s != '\0')
 		(*f)(s++);
 }

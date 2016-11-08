@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:29:26 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 04:20:14 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 18:20:04 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,15 @@ static void	fill_tab(char const *s, char c, char **tab)
 		}
 		i++;
 	}
+	tab[count] = 0;
 }
 
 char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 
+	if (s == NULL)
+		return (NULL);
 	if (!(tab = (char**)malloc(sizeof(char*) * (count_words(s, c) + 1))))
 		return (NULL);
 	fill_tab(s, c, tab);

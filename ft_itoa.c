@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 00:15:22 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 05:39:20 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 17:13:32 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static char	*rev(char *buf, size_t size, int neg)
 	size_t	i;
 
 	i = 0;
-	str = ft_strnew(size + neg);
+	if (!(str = ft_strnew(size + neg)))
+		return (NULL);
 	size--;
 	if (neg)
 		str[i++] = '-';
@@ -40,7 +41,7 @@ char		*ft_itoa(int n)
 	if (n < 0)
 	{
 		if (n - 1 > 0)
-			return ("-2147483648");
+			return (ft_strdup("-2147483648"));
 		n = -n;
 		neg = 1;
 	}

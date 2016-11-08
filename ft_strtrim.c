@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:17:01 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 05:21:21 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 16:54:54 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_strtrim(char const *s)
 	if (len == 0)
 		return ("");
 	end = len - 1;
-	while (s[start] != '\0' && (s[start] == ' ' || s[start] == '\n' || s[start] == '\t'))
+	while (s[start] != '\0' &&
+			(s[start] == ' ' || s[start] == '\n' || s[start] == '\t'))
 		start++;
 	while ((s[end] == ' ' || s[end] == '\n' || s[end] == '\t') && end > start)
 		end--;
