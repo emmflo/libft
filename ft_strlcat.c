@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:09:44 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:09:45 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 06:45:42 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 	size_t start;
 
 	start = ft_strlen(dst);
+	if (n < start)
+		return (start);
 	size = start + ft_strlen(src);
 	dst = &dst[start];
 	while (*(src) != '\0' && n-- > (start + 1))
