@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:09:20 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:09:21 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 06:32:19 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ char	*ft_strcpy(char *dest, const char *src)
 	while (*src != '\0')
 		*(dest++) = *(src++);
 	*dest = '\0';
-	return (dest);
+	return (orig_dest);
 }

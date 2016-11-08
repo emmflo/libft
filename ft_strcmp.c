@@ -6,7 +6,7 @@
 /*   By: eflorenz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 02:00:37 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/05 20:47:30 by emmflo           ###   ########.fr       */
+/*   Updated: 2016/11/08 06:07:19 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int		ft_strcmp(const char *s1, const char *s2)
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
