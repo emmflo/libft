@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:08:30 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 19:21:03 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 22:16:39 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (i < n)
 		{
-			((unsigned char*)dest)[n - i - 1] = ((unsigned char*)src)[n - i - 1];
+			((unsigned char*)dest)[n - i - 1] =
+				((unsigned char*)src)[n - i - 1];
 			i++;
 		}
 	}

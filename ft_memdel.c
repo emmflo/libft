@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:08:25 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:08:26 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 21:16:11 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
+	if (ap == NULL)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }

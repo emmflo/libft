@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 01:25:19 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 01:45:30 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 21:17:00 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
+	if (s == NULL)
+		return ;
 	while (*s != '\0')
 		ft_putchar_fd(*(s++), fd);
 }

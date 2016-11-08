@@ -6,36 +6,30 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 00:15:22 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 17:13:32 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/08 22:14:17 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*rev(char *buf, size_t size, int neg)
+static int	get_size(int nbr)
 {
-	char	*str;
-	size_t	i;
+	int		size;
 
-	i = 0;
-	if (!(str = ft_strnew(size + neg)))
-		return (NULL);
-	size--;
-	if (neg)
-		str[i++] = '-';
-	while (i <= (size + neg))
+	size = 1;
+	while (nbr >= 10)
 	{
-		str[i] = buf[size - i + neg];
-		i++;
+		nbr /= 10;
+		size++;
 	}
-	return (str);
+	return (size);
 }
 
 char		*ft_itoa(int n)
 {
+	int		size;
 	int		neg;
-	char	buf[11];
-	int		i;
+	char	*str;
 
 	neg = 0;
 	if (n < 0)
@@ -45,15 +39,16 @@ char		*ft_itoa(int n)
 		n = -n;
 		neg = 1;
 	}
-	else if (n == 0)
-		return ("0");
-	i = 0;
-	while (n > 0)
+	size = get_size(n) + neg;
+	if (!(str = ft_strnew(size)))
+		return (NULL);
+	if (neg)
+		str[0] = '-';
+	size--;
+	while (size >= neg)
 	{
-		buf[i] = (n % 10) + '0';
+		str[size--] = (n % 10) + '0';
 		n /= 10;
-		i++;
 	}
-	buf[i] = '\0';
-	return (rev(buf, i, neg));
+	return (str);
 }
