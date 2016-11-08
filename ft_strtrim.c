@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 23:10:18 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:10:19 by eflorenz         ###   ########.fr       */
+/*   Created: 2016/11/07 23:17:01 by eflorenz          #+#    #+#             */
+/*   Updated: 2016/11/08 05:21:21 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+char	*ft_strtrim(char const *s)
 {
-	if ('A' <= c && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	unsigned int	start;
+	unsigned int	end;
+	unsigned int	len;
+
+	start = 0;
+	len = ft_strlen(s);
+	if (len == 0)
+		return ("");
+	end = len - 1;
+	while (s[start] != '\0' && (s[start] == ' ' || s[start] == '\n' || s[start] == '\t'))
+		start++;
+	while ((s[end] == ' ' || s[end] == '\n' || s[end] == '\t') && end > start)
+		end--;
+	end++;
+	return (ft_strsub(s, start, end - start));
 }

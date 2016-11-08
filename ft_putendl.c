@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 23:10:18 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/07 23:10:19 by eflorenz         ###   ########.fr       */
+/*   Created: 2016/11/08 01:31:29 by eflorenz          #+#    #+#             */
+/*   Updated: 2016/11/08 01:45:47 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+void	ft_putendl(char const *s)
 {
-	if ('A' <= c && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	ft_putendl_fd(s, 1);
 }

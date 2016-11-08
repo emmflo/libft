@@ -38,17 +38,33 @@ OBJLIST := \
 	ft_strmap.o \
 	ft_strmapi.o \
 	ft_strequ.o \
-	ft_strnequ.o
-TESTSDIR := tests
-OBJLISTTESTS := main.o ft_unit.o $(OBJLIST:.o=_tests.o)
-OBJSTESTS := $(addprefix $(TESTSDIR)/,$(OBJLISTTESTS))
+	ft_strnequ.o \
+	ft_strsub.o \
+	ft_strjoin.o \
+	ft_strtrim.o \
+	ft_strsplit.o \
+	ft_itoa.o \
+	ft_putchar.o \
+	ft_putchar_fd.o \
+	ft_putstr.o \
+	ft_putstr_fd.o \
+	ft_putendl.o \
+	ft_putendl_fd.o \
+	ft_putnbr.o \
+	ft_putnbr_fd.o \
+	ft_lstnew.o \
+	ft_lstdelone.o \
+	ft_lstdel.o \
+	ft_lstadd.o \
+	ft_lstiter.o \
+	ft_lstmap.o
 OBJS := $(addprefix $(OBJDIR)/,$(OBJLIST))
 CC := clang
 INCDIR := 
 CFLAGS := -Wall -Wextra -Werror $(INCDIR)
 NAME := libft.a
 
-.PHONY : all clean fclean re tests
+.PHONY : all clean fclean re
 
 all : $(NAME)
 	
@@ -77,12 +93,5 @@ clean :
 fclean :
 	-rm $(NAME)
 	-rm -r $(OBJDIR)
-	-rm unit_tests
-	-rm -r tests/$(OBJDIR)
-	-rm tests/*.o
 
 re : fclean all
-
-tests: all $(OBJSTESTS)
-	$(CC) -lbsd $(OBJSTESTS) libft.a -o unit_tests
-	./unit_tests
