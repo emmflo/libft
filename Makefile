@@ -57,7 +57,8 @@ OBJLIST := \
 	ft_lstdel.o \
 	ft_lstadd.o \
 	ft_lstiter.o \
-	ft_lstmap.o
+	ft_lstmap.o \
+	ft_lstfold.o
 OBJS := $(addprefix $(OBJDIR)/,$(OBJLIST))
 CC := clang
 INCDIR := 

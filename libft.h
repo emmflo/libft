@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:12:01 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/08 03:23:12 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/09 22:21:27 by emmflo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				*ft_lstfold(t_list *lst, void *(*f)(void*, void*));
 
 #endif
