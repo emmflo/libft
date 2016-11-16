@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfilter.c                                     :+:      :+:    :+:   */
+/*   ft_getelemarray.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 18:45:17 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/15 18:45:18 by eflorenz         ###   ########.fr       */
+/*   Created: 2016/11/16 00:32:55 by eflorenz          #+#    #+#             */
+/*   Updated: 2016/11/16 02:41:29 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
+void	*ft_getelemarray(void *tab, size_t n, size_t *dimensions,
+		size_t *human_index)
 {
-	t_list	*prev;
-	t_list	*elem;
-	t_list	*next;
-	t_list	*start;
+	size_t	i;
+	int		index;
 
-	if (lst == NULL || f == NULL)
-		return ;
-	prev = NULL;
-	elem = *lst;
-	next = NULL;
-	while (elem != NULL)
+	if (n == 0)
+		return (tab);
+	i = 1;
+	index = human_index[0];
+	while (i < n)
 	{
-		if ((*f)(elem))
-		{
-			next = ft_lstnew(elem->content, elem->content_size);
-			if (start == NULL)
-				start = next;
-			if (prev != NULL)
-				prev->next = next;
-			prev = next;
-		}
-		elem = elem->next;
+		index = index * dimensions[i] + human_index[i];
+		i++;
 	}
+	return (&tab[index]);
 }

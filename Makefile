@@ -3,6 +3,7 @@ OBJLIST := \
 	ft_strncpy.o \
 	ft_strlen.o \
 	ft_strdup.o \
+	ft_strndup.o \
 	ft_strcpy.o \
 	ft_memset.o \
 	ft_bzero.o \
@@ -58,7 +59,15 @@ OBJLIST := \
 	ft_lstadd.o \
 	ft_lstiter.o \
 	ft_lstmap.o \
-	ft_lstfold.o
+	ft_lstfold.o \
+	ft_lstfilter.o \
+	ft_lstinplacefilter.o \
+	ft_newarray.o \
+	ft_getelemarray.o \
+	ft_tabiter.o \
+	ft_tabiter_null.o \
+	ft_printstrtab.o \
+	ft_printstrtab_null.o
 OBJS := $(addprefix $(OBJDIR)/,$(OBJLIST))
 CC := clang
 INCDIR := 

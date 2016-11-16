@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfilter.c                                     :+:      :+:    :+:   */
+/*   ft_lstinplacefilter.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 18:45:17 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/15 18:45:18 by eflorenz         ###   ########.fr       */
+/*   Created: 2016/11/15 18:45:07 by eflorenz          #+#    #+#             */
+/*   Updated: 2016/11/15 18:45:09 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
+void	ft_lstinplacefilter(t_list **lst, int (*f)(t_list *elem),
+		void (*del)(void *, size_t))
 {
 	t_list	*prev;
 	t_list	*elem;
 	t_list	*next;
-	t_list	*start;
 
-	if (lst == NULL || f == NULL)
+	if (lst == NULL || f == NULL || del == NULL)
 		return ;
 	prev = NULL;
 	elem = *lst;
 	next = NULL;
 	while (elem != NULL)
 	{
-		if ((*f)(elem))
+		next = elem->next;
+		if (!(*f)(elem))
 		{
-			next = ft_lstnew(elem->content, elem->content_size);
-			if (start == NULL)
-				start = next;
-			if (prev != NULL)
+			if (prev == NULL)
+				*lst = next;
+			else
 				prev->next = next;
-			prev = next;
+			ft_lstdelone(&elem, del);
 		}
-		elem = elem->next;
+		else
+			prev = elem;
+		elem = next;
 	}
 }

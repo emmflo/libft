@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfold.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 18:45:38 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/15 18:45:39 by eflorenz         ###   ########.fr       */
+/*   Created: 2016/11/16 00:51:37 by eflorenz          #+#    #+#             */
+/*   Updated: 2016/11/16 01:07:22 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_lstfold(t_list *lst, void *(*f)(void*, void*))
+char	*ft_strndup(const char *s, size_t n)
 {
-	t_list	*elem;
-	void	*value;
+	char	*d;
+	size_t	size;
+	size_t	len_s;
 
-	if (lst == NULL || f == NULL)
+	len_s = ft_strlen(s);
+	size = len_s < n ? len_s : n;
+	if (!(d = (char*)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	value = lst->content;
-	elem = lst->next;
-	while (elem != NULL)
-	{
-		value = (*f)(value, elem->content);
-		elem = elem->next;
-	}
-	return (value);
+	ft_strncpy(d, s, n);
+	return (d);
 }

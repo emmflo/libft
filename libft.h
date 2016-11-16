@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:12:01 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/09 22:21:27 by emmflo           ###   ########.fr       */
+/*   Updated: 2016/11/16 03:13:28 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s);
+char				*ft_strndup(const char *s, size_t n);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 void				*ft_memset(void *s, int c, size_t n);
@@ -81,5 +82,13 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				*ft_lstfold(t_list *lst, void *(*f)(void*, void*));
+void				*ft_newarray(size_t n, size_t *dimensions,
+						size_t content_size);
+void				*ft_getelemarray(void *tab, size_t n,
+						size_t *dimensions, size_t *human_index);
+void				ft_printstrtab_null(char **tab);
+void				ft_printstrtab(char **tab, size_t size);
+void				ft_tabiter(void **tab, size_t size, void (*f)(void*));
+void				ft_tabiter_null(void **tab, void (*f)(void *elem));
 
 #endif
