@@ -6,35 +6,35 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 18:45:17 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/15 18:45:18 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/16 16:29:14 by emmflo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
+t_list	*ft_lstfilter(t_list *lst, int (*f)(t_list *elem))
 {
 	t_list	*prev;
-	t_list	*elem;
 	t_list	*next;
 	t_list	*start;
 
 	if (lst == NULL || f == NULL)
-		return ;
+		return (lst);
 	prev = NULL;
-	elem = *lst;
 	next = NULL;
-	while (elem != NULL)
+	start = NULL;
+	while (lst != NULL)
 	{
-		if ((*f)(elem))
+		if ((*f)(lst))
 		{
-			next = ft_lstnew(elem->content, elem->content_size);
+			next = ft_lstnew(lst->content, lst->content_size);
 			if (start == NULL)
 				start = next;
 			if (prev != NULL)
 				prev->next = next;
 			prev = next;
 		}
-		elem = elem->next;
+		lst = lst->next;
 	}
+	return (start);
 }
