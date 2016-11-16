@@ -6,13 +6,13 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 18:45:17 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/15 18:45:18 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/16 04:33:44 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
+t_list	*ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
 {
 	t_list	*prev;
 	t_list	*elem;
@@ -20,7 +20,7 @@ void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
 	t_list	*start;
 
 	if (lst == NULL || f == NULL)
-		return ;
+		return (NULL);
 	prev = NULL;
 	elem = *lst;
 	next = NULL;
@@ -37,4 +37,5 @@ void	ft_lstfilter(t_list **lst, int (*f)(t_list *elem))
 		}
 		elem = elem->next;
 	}
+	return (start);
 }
