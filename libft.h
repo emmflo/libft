@@ -6,7 +6,7 @@
 /*   By: eflorenz <eflorenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 23:12:01 by eflorenz          #+#    #+#             */
-/*   Updated: 2016/11/16 04:33:25 by eflorenz         ###   ########.fr       */
+/*   Updated: 2016/11/17 13:45:31 by eflorenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ void				ft_lstinplacefilter(t_list **lst, int (*f)(t_list *elem),
 						void (*del)(void *, size_t));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				*ft_lstfold(t_list *lst, void *(*f)(void*, void*));
+t_list				*ft_lstfilter(t_list *lst, int (*f)(t_list *elem));
+void				ft_lstinplacefilter(t_list **lst, int (*f)(t_list *elem),
+						void (*del)(void *, size_t));
 void				*ft_newarray(size_t n, size_t *dimensions,
 						size_t content_size);
 void				*ft_getelemarray(void *tab, size_t n,
