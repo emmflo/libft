@@ -70,8 +70,9 @@ OBJLIST := \
 	ft_printstrtab_null.o
 OBJS := $(addprefix $(OBJDIR)/,$(OBJLIST))
 CC := clang
-INCDIR := 
-CFLAGS := -Wall -Wextra -Werror $(INCDIR)
+SRCDIR := srcs
+INCDIR := includes
+CFLAGS := -Wall -Wextra -Werror -I$(INCDIR)
 NAME := libft.a
 
 .PHONY : all clean fclean re
@@ -81,27 +82,18 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(TESTSDIR)/%.o : %.c
+$(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJS): | $(OBJDIR)
 
-$(OBJSTESTS): | $(TESTSDIR)/$(OBJDIR)
-
 $(OBJDIR):
 	mkdir $(OBJDIR)
 
-$(TESTSDIR)/$(OBJDIR):
-	mkdir $(TESTSDIR)/$(OBJDIR)
-
 clean :
-	-rm -r $(OBJDIR)
+	rm -rf $(OBJDIR)
 
-fclean :
-	-rm $(NAME)
-	-rm -r $(OBJDIR)
+fclean : clean
+	rm -f $(NAME)
 
 re : fclean all
