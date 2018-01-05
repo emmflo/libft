@@ -75,7 +75,7 @@ INCDIR := includes
 CFLAGS := -Wall -Wextra -Werror -I$(INCDIR)
 NAME := libft.a
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean binclean re
 
 all : $(NAME)
 	
@@ -93,7 +93,9 @@ $(OBJDIR):
 clean :
 	rm -rf $(OBJDIR)
 
-fclean : clean
+binclean:
 	rm -f $(NAME)
+
+fclean : clean binclean
 
 re : fclean all
